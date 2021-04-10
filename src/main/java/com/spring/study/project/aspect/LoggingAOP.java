@@ -14,22 +14,22 @@ public class LoggingAOP {
     @Around("execution(* com.spring.study.project.service.HelloService.*Hello(..))")
     public Object logAop(ProceedingJoinPoint pjp) throws Throwable {
         long begin = System.currentTimeMillis();
-        log.info("begin");
+        log.info("begin aop");
         Object object = pjp.proceed();
-        log.info("end");
+        log.info("end aop");
         long end = System.currentTimeMillis();
-        log.info("time : " + (end - begin));
+        log.info("aop time : " + (end - begin));
         return object;
     }
 
     @Around("@annotation(com.spring.study.project.annotation.LogAopByAnnotation)")
     public Object logAopByAnnotation(ProceedingJoinPoint pjp) throws Throwable {
         long begin = System.currentTimeMillis();
-        log.info("begin annotation");
+        log.info("begin annotation aop");
         Object object = pjp.proceed();
-        log.info("end annotation");
+        log.info("end annotation aop");
         long end = System.currentTimeMillis();
-        log.info("annotation time : " + (end - begin));
+        log.info("annotation aop time : " + (end - begin));
         return object;
     }
 }
