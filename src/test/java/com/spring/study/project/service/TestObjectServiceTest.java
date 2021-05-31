@@ -9,6 +9,7 @@ import org.springframework.boot.test.context.SpringBootTest;
 
 import java.util.List;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 
@@ -38,5 +39,11 @@ class TestObjectServiceTest {
     public void TestExceptionTest() {
         TestException thrown = assertThrows(TestException.class, () -> testObjectService.throwException(1));
         assertEquals("테스트 예외입니다.", thrown.getMessage());
+    }
+
+    @Test
+    public void tryCatchTest() {
+        RuntimeException thrown = assertThrows(RuntimeException.class, () -> testObjectService.tryCatch());
+        assertEquals("되던지기", thrown.getMessage());
     }
 }

@@ -28,4 +28,13 @@ public class TestObjectService {
             throw new TestException();
         }
     }
+
+    public void tryCatch() {
+        try {
+            transactionService.getException();
+        }catch (TestException e) {
+            e.printStackTrace();
+            throw new RuntimeException("되던지기");
+        }
+    }
 }

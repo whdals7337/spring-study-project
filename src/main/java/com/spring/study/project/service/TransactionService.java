@@ -1,6 +1,7 @@
 package com.spring.study.project.service;
 
 import com.spring.study.project.domain.entity.test.TestObject;
+import com.spring.study.project.exception.TestException;
 import com.spring.study.project.repository.TestObjectRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -21,5 +22,9 @@ public class TransactionService {
         log.info("currentTransactionName : {}",
                 TransactionSynchronizationManager.getCurrentTransactionName());
         testObjectRepository.save(testObject);
+    }
+
+    public void getException() {
+        throw new TestException();
     }
 }
