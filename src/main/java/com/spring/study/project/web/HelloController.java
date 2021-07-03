@@ -1,4 +1,4 @@
-package com.spring.study.project.controller;
+package com.spring.study.project.web;
 
 import com.spring.study.project.service.HelloService;
 import lombok.RequiredArgsConstructor;
@@ -11,7 +11,12 @@ public class HelloController {
 
     private final HelloService helloService;
 
-    @GetMapping("")
+    @GetMapping({"", "/"})
+    public String main() {
+        return "main";
+    }
+
+    @GetMapping("/hello")
     public String hello() {
         helloService.sayHello();
         helloService.sayBye();
